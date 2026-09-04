@@ -1,35 +1,45 @@
-# Roadrunner Rewards — Repetto PTA
+# Roadrunner Rewards — Repetto PTA Demo
 
-A static, working prototype for the Repetto PTA family badge/points system. It is intentionally dependency-free so it can be demoed immediately from GitHub Pages.
+A browser-only prototype for a Repetto PTA family engagement and badge system.
 
-## Demo features
-- Repetto/Roadrunner branded landing page
-- Family sign-in demo
-- Family dashboard with points, levels, members, and badge collection
-- Badge claiming flow
-- Demo QR code for a Harvest Festival badge
-- PTA admin dashboard
-- Manage families view/search
-- Create and activate/deactivate badges
-- Automatic QR codes for every badge
-- Printable QR-code page
-- Demo data persists in browser localStorage
+## What this version includes
 
-## Run it
-You can simply open `index.html` in a browser. For the best experience, publish the folder as a GitHub Pages site.
+### Family experience
+- Demo family login
+- Family members (adults + children)
+- Family points and Roadrunner levels
+- Badge collection
+- Upcoming event display
+- QR/badge claim flow
+- Duplicate badge protection
 
-## GitHub Pages
-1. Create a new GitHub repository.
-2. Upload `index.html`, `README.md`, and the `assets` folder.
-3. In GitHub: Settings → Pages → Deploy from a branch → `main` / root.
-4. Open the generated Pages URL.
+### PTA admin experience
+- Dashboard with family/member/event/badge activity
+- Manage Families (demo search)
+- Manage Badges
+- Create badges with point values and icons
+- Create Events
+- Automatically create an attendance badge when an event is created
+- Automatically generate a unique event QR token
+- Activate/deactivate events
+- Event QR-code print page
 
-## Demo paths
-- Family: Home → Sign In → My Family
-- Admin: Home → Admin → Manage Badges / QR Codes
-- Claim: Home → Scan a Badge → enter `RR-HARVEST-2026`
+## Try the event flow
 
-## Production upgrade
-This is a **prototype**, not a production system for real family/student data. The next version should move authentication and data to a secure backend such as Supabase, with role-based permissions, server-side QR token validation, duplicate-claim protection, audit logs, password reset, account deletion/export, and privacy controls appropriate for children.
+1. Open `index.html` in a browser.
+2. Click **Admin**.
+3. Open **Events**.
+4. Create a new event.
+5. The event automatically receives an attendance badge and QR token.
+6. Open **QR Codes** to see the printable QR cards.
+7. Click **My Family → Claim a Badge**.
+8. Enter an event token, such as `RR-EVENT-HARVEST-2026`.
+9. Choose the family member who attended and unlock the badge.
 
-The current UI/data model is intentionally organized around families → members → badges → claims so that migration to a database is straightforward.
+## Demo data
+
+The demo stores its state in browser `localStorage` under `rr-demo`. No real accounts or backend are connected.
+
+## Next production phase
+
+The prototype is intentionally backend-free. For a real deployment, move authentication, family/member records, badge records, event records, image uploads, QR tokens, and claim history to a secure backend such as Supabase. Add role-based access so only authorized PTA administrators can manage families, badges, and events.
